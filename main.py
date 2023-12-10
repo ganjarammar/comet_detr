@@ -190,6 +190,7 @@ def main(args):
                                               data_loader_val, base_ds, device, args.output_dir)
         if args.output_dir:
             utils.save_on_master(coco_evaluator.coco_eval["bbox"].eval, output_dir / "eval.pth")
+            utils.save_json(coco_evaluator.coco_predictions, output_dir/ "results.json")
         return
 
     print("Start training")
